@@ -13,7 +13,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        main.cpp
+        Input.c \
+        main.cpp \
+        ws2811/dma.c \
+        ws2811/mailbox.c \
+        ws2811/pcm.c \
+        ws2811/pwm.c \
+        ws2811/rpihw.c \
+        ws2811/ws2811.c
 
 RESOURCES += qml.qrc
 
@@ -27,3 +34,14 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /home/pi/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    input.h \
+    ws2811/clk.h \
+    ws2811/dma.h \
+    ws2811/gpio.h \
+    ws2811/mailbox.h \
+    ws2811/pcm.h \
+    ws2811/pwm.h \
+    ws2811/rpihw.h \
+    ws2811/ws2811.h
